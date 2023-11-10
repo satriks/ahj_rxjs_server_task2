@@ -1,18 +1,15 @@
-const {createRandomPost , createComments} = require('../generator/generator')
-
+const { createRandomPost, createComments } = require('../generator/generator')
 
 const db = {
 
-  posts : [],
+  posts: [],
 
-
-  addNewPost() {
-    const post  = createRandomPost()
+  addNewPost () {
+    const post = createRandomPost()
     const comments = createComments(post.id)
-    this.posts.push({post, comments: comments})
-  },
+    this.posts.push({ post, comments })
+  }
 
 }
-
 
 module.exports = db
