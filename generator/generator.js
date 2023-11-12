@@ -1,8 +1,8 @@
-const { ru, Faker, en_EN } = require('@faker-js/faker')
-const faker = new Faker({ locale: [ru, en_EN] })
+const { ru, Faker } = require('@faker-js/faker')
+const faker = new Faker({ locale: [ru] })
 
 function createRandomPost () {
-  const random = Math.floor(Math.random()*121)
+  const random = Math.floor(Math.random() * 121)
   return {
     id: faker.string.uuid(),
     author_id: faker.string.uuid(),
@@ -19,8 +19,6 @@ function createComments (postId) {
   const numberComments = Math.floor(Math.random() * 10)
   const comments = []
 
-  
-
   for (let i = 0; i <= numberComments; i++) {
     comments.push({
       id: faker.string.uuid(),
@@ -29,7 +27,6 @@ function createComments (postId) {
       author: faker.person.fullName(),
       avatar: faker.image.avatar(),
       content: faker.lorem.words(3),
-      // content: faker.internet.emoji(),
       created: faker.date.between({ from: (Date.now() - 1000 * 60 * 60 * 12), to: (Date.now()) }).getTime()
     })
   }
