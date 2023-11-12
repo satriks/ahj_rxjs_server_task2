@@ -21,7 +21,7 @@ router.get('/posts/:id/comments/latest', async (ctx) => {
   let comments = (db.posts.filter(post => post.post.id === id).map(post => post.comments).reverse())[0]
 
   if (comments && comments.length > 3) comments.length = 3
-  else { comments = 'Нет такого поста' }
+  // else { comments = 'Нет такого поста' }
 
   // console.log('ping2')
   ctx.response.body = {
