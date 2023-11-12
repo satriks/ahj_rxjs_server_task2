@@ -17,7 +17,7 @@ router.get('/posts/latest', async (ctx) => {
 router.get('/posts/:id/comments/latest', async (ctx) => {
   const id = ctx.params.id
 
-  console.log(id)
+  // console.log(id)
   let comments = (db.posts.filter(post => post.post.id === id).map(post => post.comments).reverse())[0]
 
   if (comments && comments.length > 3) comments.length = 3
